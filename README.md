@@ -23,11 +23,12 @@ Use the linear solver when it is difficult/inconvenient/impossible to invert y =
 1. this gem only solves for linear equations, and thus only returns one value.  For example, given y = x^2, solving for y = 16 will return EITHER 4 OR -4 (depending on the starting value provided).
 2. linear solver cannot handle formula specific edge-cases (like divide by 0).  If the equation you provide has invalid cases, you must be responsible for handling them yourself.
 
-Linear solver works in {TODO} steps:
+Linear solver works in 5 steps:
 1. Evaluate x = 0.0 case.  This eliminates solving for the 0 limit, of which the solver only approaches.
 2. Convert starting_value to 1 if it is 0.  The solver works by iteratively multiplying and dividing this value, so it cannot be 0.
 3. Determine whether x will be greater than or less than 0. The solver needs to know if the bounds are -infinity to 0 or 0 to infinity.
-4. Multiply starting value by 2 until it is greater
+4. Determine upper limit (toward +/-infinity) by iteratively multiplying by 2 until f(x) > goal (< goal if x is negative).
+5. Iteratively decrease and increase x by 1/2 step intervals until stopping condition is satisfied (hence log(n) performance).
 
 Linear solver has two methods:
 
