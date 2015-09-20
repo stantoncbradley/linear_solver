@@ -1,11 +1,7 @@
 require "linear_solver/version"
+require "linear_solver/calculation_unsolvable_error"
 
 module LinearSolver
-
-  # raised when linear solver reaches upper limit or asymptote limit
-  class CalculationUnsolvableError < StandardError
-
-  end
 
   def self.solve_equal(goal, starting_value, &block)
     self.solve_with_stopper(goal, starting_value, ->(a, b) { a == b }, &block)

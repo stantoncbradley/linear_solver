@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = LinearSolver::VERSION
   spec.authors       = ["stantoncbradley"]
   spec.email         = ["stantoncbradley@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = ["Brute force solve equations in log(n) time"]
+  spec.description   = ["For y = f(x), given y, solves for x."]
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -21,4 +21,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
+  spec.add_development_dependency "guard"
+  spec.add_development_dependency "guard-rspec"
 end
